@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>image/back.png</file>
+        <file>image/Button.png</file>
+        <file>image/Icon_home.png</file>
+        <file>image/mail_new.png</file>
     </qresource>
 </RCC>

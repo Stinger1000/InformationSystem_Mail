@@ -1,9 +1,15 @@
-import QtQuick 2.12
-import QtQuick.Window 2.12
+import QtQuick 2.2
+import QtQuick.Window 2.2
 
 Window {
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Information System Mail");
+
+    Image{
+        id: _background
+        source: "qrc:/image/back.png"
+        anchors.fill: parent
+    }
 }
