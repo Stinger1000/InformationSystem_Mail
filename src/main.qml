@@ -12,4 +12,15 @@ Window {
         source: "qrc:/image/back.png"
         anchors.fill: parent
     }
+
+    ListView {
+        width: 5000; height: 500
+        anchors.top: _background.top; anchors.left: _background.left
+        anchors.topMargin: 10; anchors.leftMargin: 20
+        spacing: 5
+        orientation: ListView.Horizontal
+        model: ContactModel {}
+        delegate: Rect{}
+    }
+
 }
