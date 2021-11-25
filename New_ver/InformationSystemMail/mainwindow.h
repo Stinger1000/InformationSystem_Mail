@@ -3,6 +3,7 @@
 
 #include <QGridLayout>
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QStackedWidget>
 #include <QTabWidget>
 #include <QVector>
@@ -21,7 +22,7 @@ public:
     ~MainWindow() = default;
 
 public slots:
-    void UpdateTypeAccount(const TypeAccount type);
+    void StatusLogIn(const User& user, bool status);
 
 private:
     QStackedWidget* m_stackWgt { nullptr };

@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -10,19 +9,31 @@ MainWindow::MainWindow(QWidget* parent)
     m_stackWgt->addWidget(m_signIn);
     setMinimumSize(500, 300);
     setCentralWidget(m_stackWgt);
+
+    //connects TO CONTROLLER
+    connect(m_signIn, &SignIn::SetHost, m_mainController, &MainController::SetHost);
+    connect(m_signIn, &SignIn::LogIn, m_mainController, &MainController::LogIn);
+
+    //
 }
 
-void MainWindow::UpdateTypeAccount(const TypeAccount type)
+void MainWindow::StatusLogIn(const User& user, bool status)
 {
     if (m_mainWidget)
         return;
 
+    if ((!status) || (user.type_account == TypeAccount::none)) {
+        QMessageBox::critical(nullptr, "Ошибка входа", "Проверьте правильность данных.");
+        return;
+    }
+
     m_mainWidget = new QWidget(this);
     m_tabWidget  = new QTabWidget(m_mainWidget);
 
-    auto widgetLayout = new QGridLayout(m_mainWidget);
+    auto widgetLayout
+        = new QGridLayout(m_mainWidget);
 
-    switch (type) {
+    switch (user.type_account) {
     case TypeAccount::general_manager:
         break;
     case TypeAccount::administrator:
@@ -30,6 +41,9 @@ void MainWindow::UpdateTypeAccount(const TypeAccount type)
     case TypeAccount::contact_operator:
         break;
     case TypeAccount::postman:
+        break;
+
+    default:
         break;
     }
 }

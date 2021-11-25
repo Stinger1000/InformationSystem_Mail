@@ -3,6 +3,8 @@
 
 #include <QString>
 
+const QString NAME_BD { "sysmail" };
+
 enum class TypeAccount {
     general_manager,
     administrator,
