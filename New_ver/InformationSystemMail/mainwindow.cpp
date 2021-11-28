@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(m_signIn, &SignIn::LogIn, m_mainController, &MainController::LogIn);
 
     //
+
+    setWindowTitle("Информационная система 'Почта'");
 }
 
 void MainWindow::StatusLogIn(const User& user, bool status)
