@@ -43,6 +43,8 @@ SignIn::SignIn(QWidget* parent)
 
     set_host_widget->setWindowTitle("Настройки сервера");
 
+    m_lnePassword->setEchoMode(QLineEdit::Password);
+
     //set_validator
     QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
     QRegExp ipRegex("^" + ipRange
