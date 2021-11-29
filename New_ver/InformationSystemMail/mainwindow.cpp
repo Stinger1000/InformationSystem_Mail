@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget* parent)
     Logger::instance().setOutputFile(QString("%1.txt").arg(current)); //.hh:mm:ss
 
     qDebug() << "Start MainWindow";
+    setWindowTitle("Информационная система 'Почта'");
 }
 
 void MainWindow::StatusLogIn(const User& user, bool status)
