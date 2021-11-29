@@ -1,11 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QDebug>
 #include <QGridLayout>
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QStackedWidget>
 #include <QTabWidget>
+#include <QTime>
 #include <QVector>
 
 #include "controllers/MainController.h"
@@ -13,6 +15,8 @@
 #include "models/BaseModel.h"
 
 #include "wgts/SignIn.h"
+
+#include "utils/Logger.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -33,5 +37,8 @@ private:
 
     //controller
     MainController* m_mainController { nullptr };
+    //
+
+    Logger* log { nullptr };
 };
 #endif // MAINWINDOW_H

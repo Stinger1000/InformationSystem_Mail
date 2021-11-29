@@ -29,19 +29,19 @@ SignIn::SignIn(QWidget* parent)
 
     auto menu = new QMenuBar(this);
 
-    auto set_host_widget    = new QWidget(this, Qt::Window);
-    auto host_widget_layout = new QGridLayout(set_host_widget);
-    auto label_set_ip       = new QLabel("IP адрес:", set_host_widget);
-    m_lneHost               = new QLineEdit(set_host_widget);
-    auto btn_set_host       = new QPushButton("Применить", set_host_widget);
+    m_setHost               = new QWidget(this, Qt::Window);
+    auto host_widget_layout = new QGridLayout(m_setHost);
+    auto label_set_ip       = new QLabel("IP адрес:", m_setHost);
+    m_lneHost               = new QLineEdit(m_setHost);
+    auto btn_set_host       = new QPushButton("Применить", m_setHost);
     host_widget_layout->addWidget(label_set_ip, 0, 0);
     host_widget_layout->addWidget(m_lneHost, 0, 1);
     host_widget_layout->addWidget(btn_set_host, 1, 0, 2, 1);
 
-    menu->addAction("Настройки сервера", set_host_widget, &QWidget::show);
+    menu->addAction("Настройки сервера", m_setHost, &QWidget::show);
     layout->setMenuBar(menu);
 
-    set_host_widget->setWindowTitle("Настройки сервера");
+    m_setHost->setWindowTitle("Настройки сервера");
 
     //set_validator
     QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
@@ -53,7 +53,7 @@ SignIn::SignIn(QWidget* parent)
     m_lneHost->setValidator(ipValidator);
     //
 
-    connect(btn_set_host, &QPushButton::clicked, this, [&]() { emit SetHost(m_lneHost->text()); });
+    connect(btn_set_host, &QPushButton::clicked, this, [&]() { emit SetHost(m_lneHost->text()); m_setHost->hide(); });
     connect(m_btnSignIn, &QPushButton::clicked, this, [&]() {
         User user;
         user.login = m_lneLogin->text();

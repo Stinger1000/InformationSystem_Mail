@@ -12,12 +12,16 @@ SOURCES += \
     controllers/MainController.cpp \
     main.cpp \
     mainwindow.cpp \
+    utils/Configs.cpp \
+    utils/Logger.cpp \
     wgts/SignIn.cpp
 
 HEADERS += \
     controllers/MainController.h \
     mainwindow.h \
     models/BaseModel.h \
+    utils/Configs.h \
+    utils/Logger.h \
     wgts/SignIn.h
 
 FORMS +=

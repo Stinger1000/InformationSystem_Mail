@@ -7,6 +7,9 @@ MainController::MainController(QObject* parent)
 
 void MainController::LogIn(const User& user)
 {
+    qDebug() << "Connect to BASE\n Login: " << user.login << "   Password: " << user.password
+             << " Host: " << m_current_host << " DataBase Name: " << NAME_BD;
+
     m_db = QSqlDatabase::addDatabase("QMYSQL");
 
     m_db.setHostName(m_current_host);
@@ -21,14 +24,13 @@ void MainController::LogIn(const User& user)
     if (m_db.isValid())
         result = m_db.open();
 
-    if (result) {
-        //TODO:
-    } else {
-        emit StatusLogIn(user, result);
-    }
+    qDebug() << "Status Connect to Base: " << result;
+
+    emit StatusLogIn(user, result);
 }
 
 void MainController::SetHost(const QString host)
 {
+    qDebug() << "Set Host: " << host;
     m_current_host = host;
 }

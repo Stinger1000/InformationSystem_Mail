@@ -26,6 +26,7 @@ private:
     QLineEdit*   m_lneLogin { nullptr };
     QLineEdit*   m_lnePassword { nullptr };
 
+    QWidget*   m_setHost { nullptr };
     QLineEdit* m_lneHost { nullptr };
 };
 

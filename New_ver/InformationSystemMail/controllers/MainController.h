@@ -1,6 +1,7 @@
 #ifndef MAINCONTROLLER_H
 #define MAINCONTROLLER_H
 
+#include <QDebug>
 #include <QObject>
 #include <QSqlDatabase>
 

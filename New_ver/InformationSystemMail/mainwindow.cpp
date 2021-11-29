@@ -15,6 +15,17 @@ MainWindow::MainWindow(QWidget* parent)
     connect(m_signIn, &SignIn::LogIn, m_mainController, &MainController::LogIn);
 
     //
+
+    //connect to UI
+    connect(m_mainController, &MainController::StatusLogIn, this, &MainWindow::StatusLogIn);
+
+    //
+
+    log          = &log->instance();
+    auto current = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
+    Logger::instance().setOutputFile(QString("%1.txt").arg(current)); //.hh:mm:ss
+
+    qDebug() << "Start MainWindow";
 }
 
 void MainWindow::StatusLogIn(const User& user, bool status)
