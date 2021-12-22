@@ -1,6 +1,6 @@
 QT       += core gui sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += widgets
 
 CONFIG += c++17
 
@@ -12,17 +12,27 @@ SOURCES += \
     controllers/MainController.cpp \
     main.cpp \
     mainwindow.cpp \
+    models/MainTableModel.cpp \
     utils/Configs.cpp \
     utils/Logger.cpp \
-    wgts/SignIn.cpp
+    wgts/CreateDeletePostUi.cpp \
+    wgts/CreateDeleteUserUi.cpp \
+    wgts/CreateForwardPostUi.cpp \
+    wgts/DepartureUi.cpp \
+    wgts/SignInUi.cpp
 
 HEADERS += \
     controllers/MainController.h \
     mainwindow.h \
     models/BaseModel.h \
+    models/MainTableModel.h \
     utils/Configs.h \
     utils/Logger.h \
-    wgts/SignIn.h
+    wgts/CreateDeletePostUi.h \
+    wgts/CreateDeleteUserUi.h \
+    wgts/CreateForwardPostUi.h \
+    wgts/DepartureUi.h \
+    wgts/SignInUi.h
 
 FORMS +=
 

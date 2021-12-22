@@ -1,7 +1,9 @@
-#ifndef SIGNIN_H
-#define SIGNIN_H
+#ifndef SIGNINUI_H
+#define SIGNINUI_H
 
 #include "models/BaseModel.h"
+
+#include "utils/Configs.h"
 
 #include <QWidget>
 
@@ -12,16 +14,21 @@
 #include <QPushButton>
 #include <QRegExpValidator>
 
-class SignIn : public QWidget {
+class SignInUi : public QWidget {
     Q_OBJECT
 public:
-    explicit SignIn(QWidget* parent = nullptr);
+    explicit SignInUi(QWidget* parent = nullptr);
 
 signals:
     void SetHost(const QString& ip);
     void LogIn(const User& user);
 
+    void AutoLogin();
+
 private:
+    void LoadConfig();
+    void WriteConfig();
+
     QPushButton* m_btnSignIn { nullptr };
     QLineEdit*   m_lneLogin { nullptr };
     QLineEdit*   m_lnePassword { nullptr };
@@ -30,4 +37,4 @@ private:
     QLineEdit* m_lneHost { nullptr };
 };
 
-#endif // SIGNIN_H
+#endif // SIGNINUI_H
